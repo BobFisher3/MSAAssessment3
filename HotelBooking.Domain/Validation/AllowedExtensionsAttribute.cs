@@ -31,7 +31,7 @@ namespace ShopDienThoai.Models.Validation
 
         public string GetErrorMessage()
         {
-            return $"Tập tin hình ảnh không hợp lệ!";
+            return $"Extension type invalid!";
         }
     }
 }

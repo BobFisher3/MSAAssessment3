@@ -5,7 +5,7 @@ namespace HotelBooking.Domain.User
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required(ErrorMessage = "Nhập vào tên của bạn!")]
+        [Required(ErrorMessage = "Text size invalid.")]
         [StringLength(30, MinimumLength = 10)]
         public string Name { get; set; }
         public string Avatar { get; set; }

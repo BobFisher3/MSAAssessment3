@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý tiện nghi";
+    ViewData["Title"] = "Facility Managment";
 }
 
 <div class="text-center mb-3">
@@ -19,9 +19,9 @@
 <table class="table table-borderless table-striped table-earning">
     <thead>
         <tr>
-            <th>tên</th>
-            <th>biểu tượng</th>
-            <th>Hành động</th>
+            <th>Name</th>
+            <th>Images</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody id="facilitiesTable">
@@ -46,7 +46,7 @@
                 <form id="form">
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tên tiện nghi:</label>
+                            <label>Facility Name:</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="FacilityName" name="FacilityName" class="form-control" data-rule-required="true">
@@ -55,7 +55,7 @@
                     <div class="row form-group">
                         <input hidden id="FacilityImage" type="text">
                         <div class="col-3">
-                            <label>Biểu tượng:</label>
+                            <label>Image:</label>
                         </div>
                         <div class="col-6">
                             <div class="custom-file">

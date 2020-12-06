@@ -17,11 +17,11 @@
     </div>
     <div class="modal-body modal_details">
         <input type="number" id="BookingId" name="BookingId" value="@Model" class="form-control" hidden>
-        <h4 class="mb-3">Thông tin khách hàng </h4>
+        <h4 class="mb-3">Customer Information </h4>
         <input type="number" id="CustomerId" name="CustomerId" value="0" class="form-control" hidden>
         <div class="row form-group">
             <div class="col-3">
-                <label>Tên khách hàng</label>
+                <label>Customer Name</label>
             </div>
             <div class="col-9">
                 <input type="text" id="Name" name="Name" value="" class="form-control" data-rule-required="true">
@@ -29,7 +29,7 @@
         </div>
         <div class="row form-group">
             <div class="col-3">
-                <label>Số điện thoại</label>
+                <label>Phone Number</label>
             </div>
             <div class="col-9">
                 <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" data-rule-required="true">
@@ -37,17 +37,17 @@
         </div>
         <div class="row form-group">
             <div class="col-3">
-                <label>Địa chỉ email</label>
+                <label>Customer Email</label>
             </div>
             <div class="col-9">
                 <input type="text" id="Email" name="Email" class="form-control" data-rule-required="true">
             </div>
         </div>
         <hr />
-        <h4 class="mb-3">Thông tin đặt phòng </h4>
+        <h4 class="mb-3">Booking Information </h4>
         <div class="row form-group">
             <div class="col-3">
-                <label>Số lượng người lớn</label>
+                <label>Number Of Adults</label>
             </div>
             <div class="col-9">
                 <input type="number" id="NumberofAdults" name="NumberofAdults" class="form-control" data-rule-required="true">
@@ -55,7 +55,7 @@
         </div>
         <div class="row form-group">
             <div class="col-3">
-                <label>Số lượng trẻ em</label>
+                <label>Number of Children</label>
             </div>
             <div class="col-9">
                 <input type="number" id="NumberofChildren" name="NumberofChildren" value="0" class="form-control" data-rule-required="true">
@@ -63,7 +63,7 @@
         </div>
         <div class="row form-group">
             <div class="col-3">
-                <label>Ngày đến:</label>
+                <label>Check In Date:</label>
             </div>
             <div class="col-9">
                 <input type="date" id="CheckinDate" name="CheckinDate" class="form-control" data-rule-required="true">
@@ -71,14 +71,14 @@
         </div>
         <div class="row form-group">
             <div class="col-3">
-                <label>Ngày đi:</label>
+                <label>Check Out Date:</label>
             </div>
             <div class="col-9">
                 <input type="date" id="CheckoutDate" name="CheckoutDate" class="form-control" data-rule-required="true">
             </div>
         </div>
         <hr />
-        <h4 class="mb-3">Chi tiết đặt phòng </h4>
+        <h4 class="mb-3">Reservations Details </h4>
         <div>
             <div class="row form-group">
                 <div class="col-3">
@@ -91,7 +91,7 @@
                     <div class="row mb-3 rowRoomType_0">
                         <div class="col-9">
                             <select id="RoomTypeRow_0" name="RoomType" class="custom-select">
-                                <option value="">Chọn loại phòng</option>
+                                <option value="">Choose A Room Type:</option>
                                 @if (listRoomtype != null)
                                 {
                                     foreach (var item in listRoomtype)
@@ -102,7 +102,7 @@
                             </select>
                         </div>
                         <div class="col-2">
-                            <input type="number" id="RoomQuantity_0" name="RoomQuantity" value="" placeholder="Số lượng" class="form-control" />
+                            <input type="number" id="RoomQuantity_0" name="RoomQuantity" value="" placeholder="Ammount" class="form-control" />
                         </div>
                         <div class="col-1">
                             <a href="javascripts:;" class="btn btn-danger" onclick="deleteRoomTypeRow(0)"><i class="fas fa-minus"></i></a>
@@ -112,7 +112,7 @@
             </div>
         </div>
         <hr />
-        <h4 class="mb-3">Chi tiết dịch vụ </h4>
+        <h4 class="mb-3">Service Details </h4>
         <div>
             <div class="row form-group">
                 <div class="col-3">
@@ -126,14 +126,14 @@
             </div>
         </div>
         <hr />
-        <h4 class="mb-3">Thông tin khuyến mãi </h4>
+        <h4 class="mb-3">Promotion Information </h4>
         <div class="row form-group">
             <div class="col-3">
-                <label>Mã giảm giá</label>
+                <label>Discount Code</label>
             </div>
             <div class="col-9">
                 <select id="CouponId" class="custom-select">
-                    <option value="">Chọm mã giảm giá</option>
+                    <option value="">Get A Discount Code</option>
                     @if (listCoupon != null)
                     {
                         foreach (var item in listCoupon)
@@ -146,8 +146,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="javascripts:;" class="btn btn-primary" onclick="save()">Lưu</a>
-        <button class="btn btn-secondary" onclick="goBack()">Trở về</button>
+        <a href="javascripts:;" class="btn btn-primary" onclick="save()">Save</a>
+        <button class="btn btn-secondary" onclick="goBack()">Go Back</button>
     </div>
 </Form>
 @section scripts{
@@ -163,8 +163,6 @@
                     method: "GET",
                     dataType: "json",
                     success: function (data) {
-                        //location.assign(`Booking/BookingDetails/${id}`);
-                        //$('.modal-title').text('Đổi thông tin đặt phòng');
                         $('#BookingId').val(data.result.bookingId);
                         $('#CheckinDate').val(dateToYMD(data.result.checkinDate));
                         $('#CheckoutDate').val(dateToYMD(data.result.checkoutDate));
@@ -175,14 +173,12 @@
                         $('#NumberofChildren').val(data.result.numberofChildren);
                         $('#CouponId').val(data.result.couponId);
                         $('#CustomerId').val(data.result.customerId);
-                        //$('#mediumModal').appendTo("body");
-                        //$('#mediumModal').modal('show');
                         for (let i = 0; i < data.result.bookingServiceDetails.length; i++) {
                             $('#ServiceDetails').append(`
                                 <div class="row mb-3 rowService_${i}">
                                     <div class="col-9">
                                         <select id="Serivce_${i}" name="ServiceType" class="custom-select">
-                                            <option value="">Chọn dịch vụ</option>
+                                            <option value="">Choose a Service</option>
                                             @if (listService != null)
                                             {
                                                 foreach (var item in listService)
@@ -193,7 +189,7 @@
                                         </select>
                                     </div>
                                     <div class="col-2">
-                                        <input type="number" id="ServiceQuantity_${i}" name="ServiceQuantity" value="" placeholder="Số lượng" class="form-control" />
+                                        <input type="number" id="ServiceQuantity_${i}" name="ServiceQuantity" value="" placeholder="Amount" class="form-control" />
                                     </div>
                                     <div class="col-1">
                                         <a href="javascripts:;" class="btn btn-danger" onclick="deleteServiceRow(${i})"><i class="fas fa-minus"></i></a>
@@ -209,7 +205,7 @@
                                 <div class="row mb-3 rowRoomType_${i}">
                                     <div class="col-9">
                                         <select id="RoomTypeRow_${i}" name="RoomType" class="custom-select">
-                                            <option value="">Chọn loại phòng</option>
+                                            <option value="">Choose a room type</option>
                                             @if (listRoomtype != null)
                                             {
                                                 foreach (var item in listRoomtype)
@@ -244,7 +240,7 @@
                 <div class="row mb-3 rowRoomType_${roomTypeRowId+1}">
                             <div class="col-9">
                                 <select id="RoomTypeRow_${roomTypeRowId + 1}" name="RoomType" class="custom-select">
-                                    <option value="">Chọn loại phòng</option>
+                                    <option value="">Choose a room type</option>
                                     @if (listRoomtype != null)
                                     {
                                         foreach (var item in listRoomtype)
@@ -255,7 +251,7 @@
                                 </select>
                             </div>
                             <div class="col-2">
-                                <input type="number" id="RoomQuantity_${roomTypeRowId + 1}" name="RoomQuantity" value="" placeholder="Số lượng" class="form-control" />
+                                <input type="number" id="RoomQuantity_${roomTypeRowId + 1}" name="RoomQuantity" value="" placeholder="Amount" class="form-control" />
                             </div>
                             <div class="col-1">
                                 <a href="javascripts:;" class="btn btn-danger" onclick="deleteRoomTypeRow(${roomTypeRowId+1})"><i class="fas fa-minus"></i></a>
@@ -275,7 +271,7 @@
                 <div class="row mb-3 rowService_${serviceRowId+1}">
                             <div class="col-9">
                                 <select id="Serivce_${serviceRowId + 1}" name="ServiceType" class="custom-select">
-                                    <option value="">Chọn dịch vụ</option>
+                                    <option value="">Choose a service</option>
                                     @if (listService != null)
                                     {
                                         foreach (var item in listService)
@@ -286,7 +282,7 @@
                                 </select>
                             </div>
                             <div class="col-2">
-                                <input type="number" id="ServiceQuantity_${serviceRowId + 1}" name="ServiceQuantitye" value="" placeholder="Số lượng" class="form-control" />
+                                <input type="number" id="ServiceQuantity_${serviceRowId + 1}" name="ServiceQuantitye" value="" placeholder="Amount" class="form-control" />
                             </div>
                             <div class="col-1">
                                 <a href="javascripts:;" class="btn btn-danger" onclick="deleteServiceRow(${serviceRowId+1})"><i class="fas fa-minus"></i></a>
@@ -327,10 +323,6 @@
                     }
                 }
                 bookingObj.BookingId = parseInt($('#BookingId').val());
-                //bookingObj.BookingCustomer.Name = $('#Name').val();
-                //bookingObj.BookingCustomer.PhoneNumber = $('#PhoneNumber').val();
-                //bookingObj.BookingCustomer.Email = $('#Email').val();
-                //bookingObj.BookingCustomer.CustomerId = parseInt($('#CustomerId').val());
                 customerObj.Name = $('#Name').val().trim();
                 customerObj.PhoneNumber = $('#PhoneNumber').val().trim();
                 customerObj.Email = $('#Email').val().trim();

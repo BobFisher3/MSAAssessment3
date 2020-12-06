@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý đặt phòng";
+    ViewData["Title"] = "Manage Reservations";
 }
 
 <div class="text-center mb-3">
@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-12 mb-3">
         <a href="BookingsManager/BookingDetails/0" class="btn btn-info"
-           @*onclick="booking.add()"*@><i class="fas fa-plus"></i>Tạo mới</a>
+           @*onclick="booking.add()"*@><i class="fas fa-plus"></i>Create New</a>
     </div>
 </div>
 
@@ -19,13 +19,13 @@
 <table class="table table-borderless table-striped table-earning table-responsive">
     <thead>
         <tr>
-            <th>mã đặt phòng</th>
-            <th>tên khách hàng</th>
-            <th>ngày tạo</th>
-            <th>ngày đến</th>
-            <th>ngày đi</th>
-            <th>tổng tiền</th>
-            <th>hành động</th>
+            <th>Booking Code</th>
+            <th>Customer Name</th>
+            <th>Creation Date</th>
+            <th>Arrival Date</th>
+            <th>Travel Date</th>
+            <th>Total Amount</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody id="bookingTable">

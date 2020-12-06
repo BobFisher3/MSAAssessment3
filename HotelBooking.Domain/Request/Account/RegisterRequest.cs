@@ -2,6 +2,7 @@
 
 namespace HotelBooking.Domain.Request.Account
 {
+    //Get / sets for register requests
     public class RegisterRequest
     {
         public string Email { get; set; }

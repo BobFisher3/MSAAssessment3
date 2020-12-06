@@ -8,6 +8,7 @@ namespace HotelBooking.WEB.Controllers
 {
     public class BookingRoomDetailsController : Controller
     {
+        //Controller class for Booking Room Details
         public JsonResult Display(int id)
         {
             List<BookingRoomDetails> result = ApiHelper<List<BookingRoomDetails>>.HttpGetAsync($"{Helper.ApiUrl}api/bookingRoomDetails_DisplayBookingRoomTypesByBookingId/get/{id}");

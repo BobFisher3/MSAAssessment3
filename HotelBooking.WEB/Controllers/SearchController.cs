@@ -17,12 +17,6 @@ namespace HotelBooking.WEB.Controllers
             var result = ApiHelper<SearchResult>.HttpPostAsync($"{Helper.ApiUrl}api/Search", request);
             return Json(new { result });
         }
-        //public JsonResult GetRoomType(int id, int minRemain)
-        //{
-        //    var listRoomType = ApiHelper<List<RoomType>>.HttpGetAsync($"{Helper.ApiUrl}api/roomtypes/getall");
-        //    var result = (from
-        //    return Json(new { result });
-        //}
         public IActionResult BookingDetails()
         {
             

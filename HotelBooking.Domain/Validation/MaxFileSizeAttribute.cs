@@ -30,7 +30,7 @@ namespace ShopDienThoai.Models.Validation
 
         public string GetErrorMessage()
         {
-            return $"Bạn đã upload tập tin quá lớn, kích cỡ cho phép là { _maxFileSize / 1024 / 1024} MB.";
+            return $"File size is over { _maxFileSize / 1024 / 1024} MB.";
         }
     }
 }

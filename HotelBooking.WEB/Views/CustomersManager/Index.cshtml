@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý khách hàng";
+    ViewData["Title"] = "Customer Managment";
 }
 
 <div class="text-center mb-3">
@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-12 mb-3">
         <a href="javascript:void(0);" class="btn btn-info"
-           onclick="customer.add()"><i class="fas fa-plus"></i>Thêm khách hàng</a>
+           onclick="customer.add()"><i class="fas fa-plus"></i>Add Customers</a>
     </div>
 </div>
 
@@ -20,10 +20,10 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>tên khách hàng</th>
-            <th>số điện thoại</th>
-            <th>email</th>
-            <th>hành động</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Go</th>
         </tr>
     </thead>
     <tbody id="customersTable">
@@ -48,7 +48,7 @@
                     <input type="number" id="CustomerId" name="CustomerId" class="form-control" hidden>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tên khách hàng</label>
+                            <label>Nane</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="Name" name="Name" class="form-control" data-rule-required="true">
@@ -56,7 +56,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Số điện thoại</label>
+                            <label>Phone Number</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" data-rule-required="true">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Địa chỉ email</label>
+                            <label>Customer Email</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="Email" name="Email" class="form-control" data-rule-required="true">
