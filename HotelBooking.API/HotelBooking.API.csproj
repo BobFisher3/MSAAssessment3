@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>5500b449-343f-431b-87dc-5c0e69be44e5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200809125611_InitUserDb.cs" />
+    <Compile Remove="Migrations\20200809125611_InitUserDb.Designer.cs" />
+    <Compile Remove="Migrations\20200810044820_AddNameToUserTable.cs" />
+    <Compile Remove="Migrations\20200810044820_AddNameToUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20200828103316_UpdateUsersTable.cs" />
+    <Compile Remove="Migrations\20200828103316_UpdateUsersTable.Designer.cs" />
+    <Compile Remove="Migrations\20200828103817_UpdateUsersTable.cs" />
+    <Compile Remove="Migrations\20200828103817_UpdateUsersTable.Designer.cs" />
+    <Compile Remove="Migrations\20200828104744_InitDb.cs" />
+    <Compile Remove="Migrations\20200828104744_InitDb.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HotelBooking.BAL.Interface\HotelBooking.BAL.Interface.csproj" />
+    <ProjectReference Include="..\HotelBooking.BAL\HotelBooking.BAL.csproj" />
+    <ProjectReference Include="..\HotelBooking.DAL.Interface\HotelBooking.DAL.Interface.csproj" />
+    <ProjectReference Include="..\HotelBooking.DAL\HotelBooking.DAL.csproj" />
+    <ProjectReference Include="..\HotelBooking.Domain\HotelBooking.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Chọn Phòng";
+}
+<div class="container mb-5">
+    <div class="text-center my-3">
+        <h2>@ViewData["Title"]</h2>
+    </div>
+    <div class="">
+        <div class="form">
+            <div class="p-3" style="background-color:#f1be0d">
+                <div class="row">
+                    <div id="checkInDate" class="col-lg-4 col-md-6"></div>
+                    <div id="checkOutDate" class="col-lg-4 col-md-6"></div>
+                    <div id="totalPeople" class="col-lg-4 col-md-6"></div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="bg-secondary container" id="tbRoomBooking">
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <h4 class="my-5">Tổng tiền: <span class="text-danger" id="TotalAmount"></span></h4>
+                    <a class="btn btn-success bg-warning" style="width:150px;" href="javascript:void(0);" onclick="bookRoom()"><h4>Đặt Phòng</h4></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*model nhập thông tin khách hàng*@
+
+@*<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="ajax-loader" id="modal-loader">
+                <img src="~/images/loading.gif" class="img-responsive" />
+            </div>
+            <div class="modal-header">
+                <h3 class="modal-title" id="mediumModalLabel"></h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form">
+                    <input type="number" id="CustomerId" name="CustomerId" value="0" class="form-control" hidden>
+                    <div class="row form-group">
+                        <div class="col-3">
+                            <label>Tên khách hàng</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="Name" name="Name" class="form-control" data-rule-required="true" placeholder="Nhập tên khách hàng">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-3">
+                            <label>Số điện thoại</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" data-rule-required="true" placeholder="Nhập số điện thoại">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-3">
+                            <label>Địa chỉ email</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" id="Email" name="Email" class="form-control" data-rule-required="true" placeholder="Nhập địa chỉ email">
+                        </div>
+                    </div>
+                    <hr />
+                    <h3>Thông tin khuyến mãi</h3>
+                    <hr />
+                    <div class="row form-group">
+                        <div class="col-3">
+                            <label>Mã giảm giá</label>
+                        </div>
+                        <input type="number" id="CouponId" name="CouponId" class="form-control" hidden>
+                        <div class="col-7">
+                            <input type="text" id="CouponCode" name="CouponCode" class="form-control" data-rule-required="true" placeholder="Nhập mã giảm giá">
+                        </div>
+                        <div class="col-2">
+                            <a href="javascript:;" class="btn btn-success" onclick="checkCouponCode()">Kiểm tra</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-primary" onclick="confirm()">Xác nhận</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+            </div>
+        </div>
+    </div>
+</div>*@
+@section scripts{
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+    <script src="~/lib/js/home/search.js"></script>
+}

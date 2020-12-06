@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Quản lý đặt phòng";
+}
+
+<div class="text-center mb-3">
+    <h2>@ViewData["Title"]</h2>
+</div>
+
+<div class="row">
+    <div class="col-12 mb-3">
+        <a href="BookingsManager/BookingDetails/0" class="btn btn-info"
+           @*onclick="booking.add()"*@><i class="fas fa-plus"></i>Tạo mới</a>
+    </div>
+</div>
+
+<div class="ajax-loader">
+    <img src="~/images/loading.gif" class="img-responsive" />
+</div>
+<table class="table table-borderless table-striped table-earning table-responsive">
+    <thead>
+        <tr>
+            <th>mã đặt phòng</th>
+            <th>tên khách hàng</th>
+            <th>ngày tạo</th>
+            <th>ngày đến</th>
+            <th>ngày đi</th>
+            <th>tổng tiền</th>
+            <th>hành động</th>
+        </tr>
+    </thead>
+    <tbody id="bookingTable">
+    </tbody>
+</table>
+
+@section scripts{
+    <script src="~/lib/js/dashboard/booking.js" asp-append-version="true"></script>
+}

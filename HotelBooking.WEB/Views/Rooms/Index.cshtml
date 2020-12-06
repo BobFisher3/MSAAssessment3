@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Danh sách phòng";
+}
+
+<div class="ajax-loader">
+    <img src="~/images/loading.gif" class="img-responsive" />
+</div>
+
+<div class="container">
+    <h2 class="my-5 text-center">@ViewData["Title"]</h2>
+    <div class="row" id="rooms">
+    </div>
+</div>
+@section styles{
+    <style>
+        .roomInfo {
+            text-shadow: 0 0 1px #ffffff;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+}
+@section scripts{
+    <script src="~/lib/js/home/rooms.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function () {
+            showRoomTypes();
+        });
+    </script>
+}
