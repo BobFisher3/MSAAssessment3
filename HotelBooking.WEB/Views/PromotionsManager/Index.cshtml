@@ -22,9 +22,9 @@
             <th>id</th>
             <th>Progam Name</th>
             <th>Start Day</th>
-            <th>ngày kết thúc</th>
-            <th>mức giảm giá</th>
-            <th>Hành động</th>
+            <th>End Date</th>
+            <th>Discounts</th>
+            <th>Go</th>
         </tr>
     </thead>
     <tbody id="promotionsTable">
@@ -49,7 +49,7 @@
                 <form id="form">
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tên chương trình:</label>
+                            <label>Promotion Name:</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="PromotionName" name="PromotionName" class="form-control" data-rule-required="true">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Ngày bắt đầu:</label>
+                            <label>Start Date:</label>
                         </div>
                         <div class="col-9">
                             <input type="date" id="StartDate" name="StartDate" class="form-control" data-rule-required="true">
@@ -65,7 +65,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Ngày kết thúc:</label>
+                            <label>End Date:</label>
                         </div>
                         <div class="col-9">
                             <input type="date" id="EndDate" name="EndDate" class="form-control" data-rule-required="true">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Mức giảm giá (%):</label>
+                            <label>Discount Rates (%):</label>
                         </div>
                         <div class="col-9">
                             <input type="number" id="DiscountRates" name="DiscountRates" class="form-control" data-rule-required="true" min="1" max="100">
@@ -81,7 +81,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Loại phòng áp dụng:</label>
+                            <label>Room Types:</label>
                         </div>
                         <div class="col-9">
                             <select id="roomTypes" name="roomTypes" multiple="multiple" class="form-control">
@@ -91,8 +91,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="javascript:;" class="btn btn-primary" onclick="promotion.save()">Lưu</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                <a href="javascript:;" class="btn btn-primary" onclick="promotion.save()">Go</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

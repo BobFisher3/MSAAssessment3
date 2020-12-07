@@ -1,6 +1,6 @@
 ﻿@model RegisterModel
 @{
-    ViewData["Title"] = "Đăng ký";
+    ViewData["Title"] = "Registration";
 }
 <form enctype="multipart/form-data" asp-controller="User" asp-action="Register" method="post">
     <div class="form-group" id="imgPreview">
@@ -10,7 +10,7 @@
 
     <div class="form-group">
         <div>
-            <label>Ảnh đại diện</label>
+            <label>Avatar</label>
         </div>
         <div class="custom-file">
             <input id="avatarImage" name="avatarImage" type="file" class="custom-file-input form-control">
@@ -23,32 +23,32 @@
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Họ và tên</label>
-        <input class="au-input au-input--full" type="text" name="Name" placeholder="Họ và tên">
+        <label>First and Last Name</label>
+        <input class="au-input au-input--full" type="text" name="Name" placeholder="First and Last Name">
         <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Số điện thoại</label>
-        <input class="au-input au-input--full" type="text" name="PhoneNumber" placeholder="Số điện thoại">
+        <label>Phone Number</label>
+        <input class="au-input au-input--full" type="text" name="PhoneNumber" placeholder="Phone Number">
         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Giới tính</label>
+        <label>Sex</label>
         <div>
-            @Html.RadioButtonFor(s => s.Gender, Gender.Male)@Html.Label("Nam")
+            @Html.RadioButtonFor(s => s.Gender, Gender.Male)@Html.Label("Male")
         </div>
         <div>
-            @Html.RadioButtonFor(s => s.Gender, Gender.Female)@Html.Label("Nữ")
+            @Html.RadioButtonFor(s => s.Gender, Gender.Female)@Html.Label("Female")
         </div>
     </div>
     <div class="form-group">
-        <label>Mật khẩu</label>
-        <input class="au-input au-input--full" type="Password" name="Password" placeholder="Mật khẩu">
+        <label>Password</label>
+        <input class="au-input au-input--full" type="Password" name="Password" placeholder="Password">
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Nhập lại mật khẩu</label>
-        <input class="au-input au-input--full" type="Password" name="ConfirmPassword" placeholder="Nhập lại mật khẩu">
+        <label>Enter the password</label>
+        <input class="au-input au-input--full" type="Password" name="ConfirmPassword" placeholder="Enter the password">
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
     <div class="login-checkbox">

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý loại phòng";
+    ViewData["Title"] = "Manage Room Types";
 }
 
 <div class="text-center mb-3">
@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-12 mb-3">
-        <a href="javascript:void(0);" class="btn btn-info" onclick="roomType.add()"><i class="fas fa-plus"></i> Thêm loại phòng</a>
+        <a href="javascript:void(0);" class="btn btn-info" onclick="roomType.add()"><i class="fas fa-plus"></i> Add Room Type</a>
     </div>
 </div>
 
@@ -20,9 +20,9 @@
         <tr>
             <th>id</th>
             <th>loại phòng</th>
-            <th class="text-right">giá (₫)</th>
-            <th class="text-right">số lượng</th>
-            <th>Hành động</th>
+            <th class="text-right">Price ($)</th>
+            <th class="text-right">Amount</th>
+            <th>Go</th>
         </tr>
     </thead>
     <tbody id="roomTypesTable">
@@ -59,18 +59,18 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Hình ảnh:</label>
+                            <label>Picture:</label>
                         </div>
                         <div class="col-9">
                             <div class="custom-file">
                                 <input id="RoomTypeImages" name="RoomTypeImages" type="file" class="custom-file-input form-control" multiple>
-                                <label class="custom-file-label" for="RoomTypeImages">Chọn tập tin</label>
+                                <label class="custom-file-label" for="RoomTypeImages">Select A File</label>
                             </div>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tên loại phòng:</label>
+                            <label>Room Type Name:</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="Name" name="Name" class="form-control" data-rule-required="true">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Giá phòng (₫):</label>
+                            <label>Price ($):</label>
                         </div>
                         <div class="col-9">
                             <input type="number" id="DefaultPrice" name="DefaultPrice" class="form-control" data-rule-required="true">
@@ -86,12 +86,12 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Sức chứa:</label>
+                            <label>Capacity:</label>
                         </div>
                         <div class="col-9">
                             <div class="row">
                                 <div class="col-4">
-                                    Max người lớn:
+                                    Max Adults:
                                 </div>
                                 <div class="col-4">
                                     <input type="number" id="adult" name="adult" class="form-control" />
@@ -106,7 +106,7 @@
                         <div class="col-9">
                             <div class="row">
                                 <div class="col-4">
-                                    Max trẻ em:
+                                    Max Children:
                                 </div>
                                 <div class="col-4">
                                     <input type="number" id="children" value="0" name="children" class="form-control" />
@@ -121,7 +121,7 @@
                         <div class="col-9">
                             <div class="row">
                                 <div class="col-4">
-                                    Max tổng người:
+                                    Max Total People:
                                 </div>
                                 <div class="col-4">
                                     <input type="number" id="people" name="people" class="form-control" />
@@ -134,7 +134,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Số lượng phòng:</label>
+                            <label>Number of Rooms:</label>
                         </div>
                         <div class="col-9">
                             <input type="number" id="Quantity" name="Quantity" class="form-control" data-rule-required="true">
@@ -142,7 +142,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tiện nghi:</label>
+                            <label>Facilities:</label>
                         </div>
                         <div class="col-9">
                             <select name="facilities" id="facilities" multiple="multiple" class="form-control">
@@ -151,7 +151,7 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Mô tả:</label>
+                            <label>Description:</label>
                         </div>
                         <div class="col-9">
                             <textarea id="Description" name="Description" class="form-control" data-rule-required="true"></textarea>
@@ -160,8 +160,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="javascript:;" class="btn btn-primary" onclick="roomType.save()">Lưu</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                <a href="javascript:;" class="btn btn-primary" onclick="roomType.save()">Go</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
