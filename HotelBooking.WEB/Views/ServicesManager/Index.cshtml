@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Quản lý dịch vụ";
+    ViewData["Title"] = "Service management";
 }
 
 <div class="text-center mb-3">
@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-12 mb-3">
         <a href="javascript:void(0);" class="btn btn-info"
-           onclick="service.add()"><i class="fas fa-plus"></i> Thêm dịch vụ</a>
+           onclick="service.add()"><i class="fas fa-plus"></i> Add service</a>
     </div>
 </div>
 
@@ -20,9 +20,10 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>Tên dịch vụ</th>
-            <th>Giá dịch vụ</th>
-            <th>Hành động</th>
+            <th>service name</th>
+            <th>Service prices</th>
+            <th>Act
+            </th>
         </tr>
     </thead>
     <tbody id="serviceTable">
@@ -59,18 +60,18 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Hình ảnh:</label>
+                            <label>Picture:</label>
                         </div>
                         <div class="col-9">
                             <div class="custom-file">
                                 <input id="ServiceImages" name="ServiceImages" type="file" multiple>
-                                @*<label for="ServiceImages">Chọn tập tin</label>*@
+                                @*<label for="ServiceImages">Select the file</label>*@
                             </div>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Tên dịch vụ:</label>
+                            <label>service name:</label>
                         </div>
                         <div class="col-9">
                             <input type="text" id="ServiceName" name="ServiceName" class="form-control" data-rule-required="true">
@@ -78,7 +79,9 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Giá dịch vụ:</label>
+                            <label>
+                                Service prices:
+                            </label>
                         </div>
                         <div class="col-9">
                             <input type="number" id="Price" name="Price" class="form-control" data-rule-required="true">
@@ -86,7 +89,8 @@
                     </div>
                     <div class="row form-group">
                         <div class="col-3">
-                            <label>Mô tả:</label>
+                            <label> Describe:
+                            </label>
                         </div>
                         <div class="col-9">
                             <textarea id="Description" name="Description" class="form-control" data-rule-required="true"></textarea>
@@ -95,8 +99,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="javascript:;" class="btn btn-primary" onclick="service.save()">Lưu</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                <a href="javascript:;" class="btn btn-primary" onclick="service.save()">Save</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -112,7 +116,7 @@
             var fileLabel = $(this).next('.custom-file-label');
             var files = $(this)[0].files;
             if (files.length > 1) {
-                fileLabel.html(files.length + ' tập tin được chọn');
+                fileLabel.html(files.length + ' selected file');
             }
             else if (files.length == 1) {
                 fileLabel.html(files[0].name);
