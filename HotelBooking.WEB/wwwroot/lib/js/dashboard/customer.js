@@ -33,17 +33,17 @@ customer.validation = function () {
         },
         messages: {
             Name: {
-                required: "Bạn phải nhập tên khách hàng",
-                regex: "Tên khách hàng không chứa chữ số và kí tự đặc biệt"
+                required: "Must enter customer name",
+                regex: "Can't contain special characterts"
             },
             PhoneNumber: {
-                required: "Bạn phải nhập số điện thoại",
-                regex: "Số điện thoại không hợp lệ",
-                range: "Số điện thoại không quá 10 số"
+                required: "Must enter phone number",
+                regex: "must be a number",
+                range: "Must be 10 numbers"
             },
             Email: {
-                required: "Bạn phải nhập địa chỉ email",
-                regex: "Địa chỉ email không hợp lệ"
+                required: "Must enter an email",
+                regex: "Invalid Email"
             }
         }
     })
@@ -83,7 +83,7 @@ customer.drawTable = function () {
 
 customer.add = function () {
     customer.reset();
-    $('.modal-title').text('Thêm khách hàng');
+    $('.modal-title').text('Add Customers');
     $('#mediumModal').appendTo("body");
     $('#mediumModal').modal('show');
 }
@@ -153,10 +153,10 @@ customer.delete = function (id, name) {
         message: 'Bạn có thực sự muốn xoá khách hàng "' + name + '"?',
         buttons: {
             cancel: {
-                label: '<i class="fa fa-times"></i> Huỷ'
+                label: '<i class="fa fa-times"></i> Go'
             },
             confirm: {
-                label: '<i class="fa fa-check"></i> Xác nhận'
+                label: '<i class="fa fa-check"></i> Cancel'
             }
         },
         callback: function (result) {

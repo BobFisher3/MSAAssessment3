@@ -66,37 +66,37 @@ roomType.validation = function () {
         },
         messages: {
             Name: {
-                required: "Bạn phải nhập tên loại phòng",
-                regex: "Tên loại phòng không chứa chữ số và kí tự đặc biệt"
+                required: "Name Required",
+                regex: "No special characters allowed"
             },
             DefaultPrice: {
-                required: "Phải nhập giá",
-                min: "Giá tối thiểu là 10.000đ"
+                required: "Price Required",
+                min: "Must be at least $10"
             },
             adult: {
-                required: "Bạn phải nhập số lượng người lớn",
-                min: "Số lượng người lớn tối thiểu là 1"
+                required: "Must select adults",
+                min: "Adults must be atleast 1"
             },
             children: {
-                required: "Bạn phải nhập số lượng trẻ em",
-                min: "Số lượng trẻ em tối thiểu là 0"
+                required: "Children Required",
+                min: "Must be atleast 0"
             },
             people: {
-                required: "Bạn phải nhập số tổng số người",
-                min: "Tổng số người tối thiểu là 1"
+                required: "People Required",
+                min: "Number of people must be atleast 1"
             },
             Quantity: {
-                required: "Bạn phải nhập số lượng",
-                min: "Số lượng tối thiểu là 1"
+                required: "Quantity Required",
+                min: "Must be atleast 1"
             },
             facilities: {
-                required: "Chọn một tiện nghi"
+                required: "Select Nights"
             },
             Description: {
-                required: "Chọn một loại dịch vụ"
+                required: "Select Description"
             },
             RoomTypeImages: {
-                extension: "Bạn phải đưa ảnh vào"
+                extension: "Select Extension"
             }
         }
     })
@@ -168,7 +168,7 @@ roomType.get = function (id) {
                     $('#facilities').select2();
                 }
             });
-            $('.modal-title').text('Đổi thông tin loại phòng');
+            $('.modal-title').text('Change Room Type');
             $('#Name').val(data.result.name);
             $('#RoomTypeId').val(data.result.roomTypeId);
             $('#DefaultPrice').val(data.result.defaultPrice);
@@ -233,14 +233,14 @@ roomType.save = function () {
 
 roomType.delete = function (id, name) {
     bootbox.confirm({
-        title: "Xoá loại phòng",
-        message: "Bạn có thực sự muốn xoá loại phòng " + name + "?",
+        title: "Delete Room Type",
+        message: "Are you sure you want to delete room type " + name + "?",
         buttons: {
             cancel: {
-                label: '<i class="fa fa-times"></i> Huỷ'
+                label: '<i class="fa fa-times"></i> Yes'
             },
             confirm: {
-                label: '<i class="fa fa-check"></i> Xác nhận'
+                label: '<i class="fa fa-check"></i> Cancel'
             }
         },
         callback: function (result) {
@@ -301,7 +301,7 @@ roomType.reset = function () {
     $('#people').val('');
     $('#Quantity').val('');
     $('#Description').val('');
-    $(".custom-file-label").text("Chọn tập tin");
+    $(".custom-file-label").text("Select The File");
     $("#imgsPreview").empty();
     $('#imgsData').empty();
 }
@@ -337,14 +337,14 @@ readFiles = function () {
 
 roomType.deleteImage = function (roomTypeImageId) {
     bootbox.confirm({
-        title: "Xoá ảnh",
-        message: "Bạn có thực sự muốn xoá ảnh này?",
+        title: "Delete Photos",
+        message: "Are you sure?",
         buttons: {
             cancel: {
-                label: '<i class="fa fa-times"></i> Huỷ'
+                label: '<i class="fa fa-times"></i> Yes'
             },
             confirm: {
-                label: '<i class="fa fa-check"></i> Xác nhận'
+                label: '<i class="fa fa-check"></i> Cancel'
             }
         },
         callback: function (result) {

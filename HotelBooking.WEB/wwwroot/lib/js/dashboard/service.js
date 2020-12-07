@@ -102,7 +102,7 @@ service.drawTable = function () {
 
 service.add = function () {
     service.reset();
-    $('.modal-title').text('Thêm dịch vụ');
+    $('.modal-title').text('Add Service');
     $('#mediumModal').appendTo("body");
     $('#mediumModal').modal('show');
 }
@@ -112,7 +112,7 @@ service.reset = function () {
     $('#ServiceId').val(0);
     $('#Price').val('');
     $('#Description').val('');
-    $(".custom-file-label").text("Chọn tập tin");
+    $(".custom-file-label").text("Select File");
     $("#imgsPreview").empty();
     $('#imgsData').empty();
 }

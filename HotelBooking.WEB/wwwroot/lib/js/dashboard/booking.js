@@ -24,7 +24,6 @@ booking.validation = function () {
         return isNaN(value) && isNaN($(params[0]).val()) || (Number(value) > Number($(params[0]).val()));
     },
         'Must be greater than {1}.');
-    //$('#Name').val(`${$('#Name').val().trim()}`);
     $('#form').validate({
         rules: {
             Name: {
@@ -70,43 +69,43 @@ booking.validation = function () {
         },
         messages: {
             Name: {
-                required: "Bạn phải nhập tên khách hàng",
-                regex: "Tên khách hàng không chứa chữ số và kí tự đặc biệt"
+                required: "Must enter a customer name",
+                regex: "Can't use special characters"
             },
             PhoneNumber: {
-                required: "Bạn phải nhập số điện thoại",
-                regex: "Số điện thoại không hợp lệ",
-                range: "Số điện thoại không quá 10 số"
+                required: "Must enter a phone number",
+                regex: "Invalid number",
+                range: "Must be 10 characters"
             },
             Email: {
-                required: "Bạn phải nhập địa chỉ email",
-                regex: "Địa chỉ email không hợp lệ"
+                required: "Must enter an email",
+                regex: "Invalid email"
             },
             NumberofAdults: {
-                required: "Bạn phải nhập số lượng người lớn",
-                min: "Số lượng người lớn tối thiểu là 1"
+                required: "You must enter the number of adults",
+                min: "Must be atleast 1"
             },
             NumberofChildren: {
-                min: "Số lượng trẻ em tối thiểu là 0"
+                min: "Minimum number is 0"
             },
-            CheckinDate: "Bạn phải nhập ngày đến",
+            CheckinDate: "Must enter a date",
             CheckoutDate: {
-                required: "Bạn phải nhập ngày ngày đi",
-                greaterThan: "Ngày đi phải sau ngày đến"
+                required: "Must enter a date",
+                greaterThan: "Invalid date"
             },
             RoomQuantity: {
-                required: "Bạn phải nhập số lượng",
-                min: "Số lượng tối thiểu là 1"
+                required: "Must enter room quantity",
+                min: "Must be atleast 1"
             },
             ServiceQuantity: {
-                required: "Bạn phải nhập số lượng",
-                min: "Số lượng tối thiểu là 1"
+                required: "Must enter a value",
+                min: "Minimum of 1"
             },
             RoomType: {
-                required: "Chọn một loại phòng"
+                required: "Must enter a room type"
             },
             ServiceType: {
-                required: "Chọn một loại dịch vụ"
+                required: "Must enter a service type"
             }
         }
     })
@@ -145,7 +144,6 @@ booking.drawTable = function () {
         }
     });
 }
-//onclick = "return booking.get(${v.bookingId})"
 
 booking.add = function () {
     booking.reset();
@@ -177,8 +175,6 @@ booking.get = function (id) {
         method: "GET",
         dataType: "json",
         success: function (data) {
-            //location.assign(`Booking/BookingDetails/${id}`);
-            //$('.modal-title').text('Đổi thông tin đặt phòng');
             $('#BookingId').val(data.result.bookingId);
             $('#CheckinDate').val(dateToYMD(data.result.checkinDate));
             $('#CheckoutDate').val(dateToYMD(data.result.checkoutDate));
@@ -189,8 +185,6 @@ booking.get = function (id) {
             $('#NumberofChildren').val(data.result.numberofChildren);
             $('#CouponId').val(data.result.couponId);
             $('#CustomerId').val(data.result.customerId);
-            //$('#mediumModal').appendTo("body");
-            //$('#mediumModal').modal('show');
         },
         complete: function () {
             $('.ajax-loader').css("visibility", "hidden");
@@ -204,10 +198,6 @@ booking.save = function () {
     var customerObj = {};
     var serviceDetails = [];
     bookingObj.BookingId = parseInt($('#BookingId').val());
-    //bookingObj.BookingCustomer.Name = $('#Name').val();
-    //bookingObj.BookingCustomer.PhoneNumber = $('#PhoneNumber').val();
-    //bookingObj.BookingCustomer.Email = $('#Email').val();
-    //bookingObj.BookingCustomer.CustomerId = parseInt($('#CustomerId').val());
     customerObj.Name = $('#Name').val();
     customerObj.PhoneNumber = $('#PhoneNumber').val();
     customerObj.Email = $('#Email').val();
@@ -243,14 +233,14 @@ booking.save = function () {
 
 booking.delete = function (id, name) {
     bootbox.confirm({
-        title: "Xoá đặt phòng",
-        message: 'Bạn có thực sự muốn hủy đặt phòng của khách hàng ' + name + '?',
+        title: "Room Reservation",
+        message: 'Do you really want to cancer a customers reservation ' + name + '?',
         buttons: {
             cancel: {
-                label: '<i class="fa fa-times"></i> Huỷ'
+                label: '<i class="fa fa-times"></i> Yes'
             },
             confirm: {
-                label: '<i class="fa fa-check"></i> Xác nhận'
+                label: '<i class="fa fa-check"></i> Cancel'
             }
         },
         callback: function (result) {

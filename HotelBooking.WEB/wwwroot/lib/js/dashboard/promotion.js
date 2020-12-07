@@ -99,7 +99,7 @@ promotion.drawTable = function () {
 
 promotion.add = function () {
     promotion.reset();
-    $('.modal-title').text('Thêm chương trình khuyến mãi');
+    $('.modal-title').text('Add Promotions');
     $.ajax({
         beforeSend: function () {
             $('.ajax-loader').css("visibility", "visible");

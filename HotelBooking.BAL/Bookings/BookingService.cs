@@ -120,8 +120,5 @@ namespace HotelBooking.BAL.Bookings
             return bookingRepository.Save(booking);
         }
 
-        //public Task<ActionsResult> Save(Booking booking)
-        //{
-        //}
     }
 }

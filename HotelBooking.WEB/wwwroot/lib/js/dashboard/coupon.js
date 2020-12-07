@@ -35,18 +35,18 @@ coupon.validation = function () {
         },
         messages: {
             CouponCode: {
-                required: "Bạn phải nhập code",
-                regex: "Bạn phải nhập chữ hoa không có khoảng trắng"
+                required: "Insert a coupon code",
+                regex: "You must enter uppercase letters without spaces"
             },
             Remain: {
-                required: "Bạn phải nhập số lượnng",
-                min: "Số lượng phải là số lớn hơn 1"
+                required: "Invalid",
+                min: "Must be at least 1"
             },
             Reduction: {
-                required: "Bạn phải nhập mức giảm giá",
-                min: "Mức giảm giá là số lớn hơn 1"
+                required: "Insert A date",
+                min: "Date must be at least 1"
             },
-            EndDate: "Bạn phải nhập ngày tháng"
+            EndDate: "End date here"
         }
     })
 }
@@ -87,7 +87,7 @@ coupon.drawTable = function () {
 
 coupon.add = function () {
     coupon.reset();
-    $('.modal-title').text('Thêm phiếu giảm giá');
+    $('.modal-title').text('TAdd a discount Code');
     $('#mediumModal').appendTo("body");
     $('#mediumModal').modal('show');
 }
@@ -156,8 +156,8 @@ coupon.save = function () {
 
 coupon.delete = function (id, name) {
     bootbox.confirm({
-        title: "Xoá khuyến mãi",
-        message: 'Bạn có thực sự muốn xoá thẻ giảm giá "' + name + '"?',
+        title: "Delete Promotion",
+        message: 'Dp you really want to delete the discount "' + name + '"?',
         buttons: {
             cancel: {
                 label: '<i class="fa fa-times"></i> Huỷ'

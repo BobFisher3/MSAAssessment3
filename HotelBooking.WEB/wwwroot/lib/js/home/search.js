@@ -61,8 +61,8 @@ showSelections = function () {
             searchResult = data.result;
         }
     });
-    $('#checkInDate').text(`Nhận phòng: ${formatDate(new Date(searchRequest.CheckInDate))}`);
-    $('#checkOutDate').text(`Trả phòng: ${formatDate(new Date(searchRequest.CheckOutDate))}`);
+    $('#checkInDate').text(`Check In: ${formatDate(new Date(searchRequest.CheckInDate))}`);
+    $('#checkOutDate').text(`Check Out: ${formatDate(new Date(searchRequest.CheckOutDate))}`);
     var adults = 0;
     var children = 0;
     for (let i = 0; i < searchResult.roomSearchResults.length; i++) {
@@ -72,8 +72,8 @@ showSelections = function () {
             `<div class="card my-3">
                 <div class="row">
                     <div class="col-md-3 col-sm-12 text-center my-auto">
-                        <h4>Phòng ${i + 1}</h4>
-                        <p>(${searchResult.roomSearchResults[i].adults} người lớn, ${searchResult.roomSearchResults[i].children} trẻ em)</p>
+                        <h4>Toom ${i + 1}</h4>
+                        <p>(${searchResult.roomSearchResults[i].adults} Adults, ${searchResult.roomSearchResults[i].children} Children)</p>
                     </div>
                     <div class="col-md-9 col-sm-12 my-auto" id="room${i}">
                     </div>
@@ -81,7 +81,7 @@ showSelections = function () {
             </div>`
         )
         if (!searchResult.roomSearchResults[i].roomTypeSearchResults.length)
-            $(`#room${i}`).append('<div class="text-danger">Xin lỗi, chúng tôi đã hết phòng để chứa đủ số lượng người này!</div>')
+            $(`#room${i}`).append('<div class="text-danger">Sorry out of space</div>')
         else
             for (let j = 0; j < searchResult.roomSearchResults[i].roomTypeSearchResults.length; j++) {
                 for (let k = 0; k < roomTypes.length; k++)
@@ -108,11 +108,11 @@ showSelections = function () {
                                 <img class="my-auto" src="${roomTypes[k].image}">
                             </div>
                             <div class="col-md-7">
-                                <a href="/Rooms/Details/${roomTypes[k].roomTypeId}" target="_blank"><h4 class="text-warning">${roomTypes[k].name} ${(j == 0) ? '<span class="badge badge-success">Giá tốt nhất</span>' : ''} <span class="text-danger" id="room-available-${i + 1}-${roomTypes[k].roomTypeId}"></span></h4></a>
+                                <a href="/Rooms/Details/${roomTypes[k].roomTypeId}" target="_blank"><h4 class="text-warning">${roomTypes[k].name} ${(j == 0) ? '<span class="badge badge-success">Success</span>' : ''} <span class="text-danger" id="room-available-${i + 1}-${roomTypes[k].roomTypeId}"></span></h4></a>
                                 <p>${roomTypes[k].description}</p>
-                                <p class="text-dark">Tiện nghi: ${facilities}</p>
+                                <p class="text-dark">Convienient: ${facilities}</p>
                                 ${roomPriceStr}
-                                <p class="text-dark">Tổng giá phòng: ${digitGrouping(price)}</p>
+                                <p class="text-dark">Price: ${digitGrouping(price)}</p>
                                 <input type="number" hidden value="${price}" id="roomPrice-${i + 1}-${roomTypes[k].roomTypeId}">
                             </div>
                             <div class="col-md-1 my-auto text-center">
@@ -125,7 +125,7 @@ showSelections = function () {
                     };
             }
     }
-    $('#totalPeople').text(`Tổng số người: ${adults + children} (${adults} người lớn, ${children} trẻ em)`);
+    $('#totalPeople').text(`Total People: ${adults + children} (${adults} Adults, ${children} Children)`);
 }
 
 getRoomsValue = function () {
@@ -151,7 +151,7 @@ disableUnavailableRoomTypes = function (roomTypeId) {
     for (let i = 0; i < searchResult.roomSearchResults.length; i++)
         if (!document.getElementById(`room-${i + 1}-${roomTypeId}`).checked) {
             document.getElementById(`room-${i + 1}-${roomTypeId}`).disabled = true;
-            $(`#room-available-${i + 1}-${roomTypeId}`).text('(Hết phòng)');
+            $(`#room-available-${i + 1}-${roomTypeId}`).text('(No Room)');
         }
 }
 
@@ -169,7 +169,7 @@ bookRoom = function () {
     var allRoomSelected = true;
     for (let i = 0; i < searchResult.roomSearchResults.length; i++)
         if ($(`input[name=room-${i + 1}]:checked`).length == 0) {
-            bootbox.alert(`Bạn chưa chọn loại phòng cho phòng ${i + 1}!`);
+            bootbox.alert(`No room type selected ${i + 1}!`);
             allRoomSelected = false;
             break;
         }
@@ -190,8 +190,6 @@ confirm = function () {
         bookingObj.CustomerId = customerObj.CustomerId;
         bookingObj.CouponId = parseInt($('#CouponId').val());
         bookingObj.bookingServiceDetails = serviceDetails;
-        //bookingObj.NumberofAdults = ;
-        //bookingObj.NumberofChildren = ;
         console.log(bookingObj);
         $.ajax({
             url: `/BookingsManager/Save/`,
@@ -265,10 +263,10 @@ showService = function () {
                             </div>
                             <div class="col-md-9 col-sm-12">
                                 <div class="col-3 col-sm-12 my-1">
-                                    <h5>Giá dịch vụ: ${digitGrouping(v.price)}</h5>
+                                    <h5>Service Prices: ${digitGrouping(v.price)}</h5>
                                 </div>
                                 <div class="col-9 col-sm-12 my-1">
-                                    <input type="number" id="ServiceQuantity${v.serviceId}" name="ServiceQuantity" onchange ="changeServiceQuantity(${v.price} ,${v.serviceId})" placeholder="Số lượng" class="form-control" />
+                                    <input type="number" id="ServiceQuantity${v.serviceId}" name="ServiceQuantity" onchange ="changeServiceQuantity(${v.price} ,${v.serviceId})" placeholder="Amount" class="form-control" />
                                     <input type="hidden" id="ServicePrice${v.serviceId}" value="0"/> 
                                 </div>
                             </div>
@@ -301,9 +299,6 @@ changeServiceQuantity = function (p, i) {
             $(`#ServicePrice${i}`).val(parseInt(money));
             calculateTotalServiceMoney();
         }
-        //var money = quantity * parseInt(p);
-        //    $(`#ServicePrice${i}`).val(parseInt(money));
-        //    calculateTotalServiceMoney();
     }
 }
 
@@ -464,7 +459,6 @@ validation = function () {
             return isNaN(value) && isNaN($(params[0]).val()) || (Number(value) > Number($(params[0]).val()));
         },
         'Must be greater than {1}.');
-    //$('#Name').val(`${$('#Name').val().trim()}`);
     $('#form').validate({
         rules: {
             Name: {
@@ -486,20 +480,20 @@ validation = function () {
         },
         messages: {
             Name: {
-                required: "Bạn phải nhập tên khách hàng",
-                regex: "Tên khách hàng không chứa chữ số và kí tự đặc biệt"
+                required: "Invalid",
+                regex: "Invalid"
             },
             PhoneNumber: {
-                required: "Bạn phải nhập số điện thoại",
-                regex: "Số điện thoại không hợp lệ",
-                range: "Số điện thoại không quá 10 số"
+                required: "Invalid",
+                regex: "Invalid",
+                range: "Must be 10"
             },
             Email: {
-                required: "Bạn phải nhập địa chỉ email",
-                regex: "Địa chỉ email không hợp lệ"
+                required: "Email Required",
+                regex: "Invalid"
             },
             ServiceQuantity: {
-                min: "Bạn phải nhập số lớn hơn 0"
+                min: "Must be at least 0"
             }
         }
     });
@@ -511,7 +505,7 @@ validation = function () {
         },
         messages: {
             ServiceQuantity: {
-                min: "Bạn phải nhập số lớn hơn 0"
+                min: "Mustr be at least 0"
             }
         }
     });

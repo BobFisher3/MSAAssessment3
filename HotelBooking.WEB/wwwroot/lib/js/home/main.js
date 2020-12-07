@@ -125,7 +125,7 @@ changeNumberOfRooms = function () {
         $('#selectRooms').append(
             `<h4>Phòng ${i + 1}:</h4>
             <div class"row">
-                <p class="col-4 d-inline-block">Người lớn:</p>
+                <p class="col-4 d-inline-block">Adults:</p>
                 <input type="button" class="col-1 d-inline-block bg-dark text-light" value="  -" onclick="minusAdults(${i + 1})">
                 <input type="number" readonly value="1" step="1" min="1" id="adults${i + 1}" class="col-3 d-inline-block" inputmode="numeric" />
                 <input type="button" class="col-1 d-inline-block bg-dark text-light" value="  +" onclick="addAdults(${i + 1})">
@@ -150,7 +150,7 @@ changePeople = function () {
         adults += parseInt($(`#adults${i + 1}`).val());
         children += parseInt($(`#children${i + 1}`).val());
     };
-    $('#totalPeople').text(`(${adults} người lớn, ${children} trẻ em)`);
+    $('#totalPeople').text(`(${adults} Adults, ${children} Children)`);
     localStorage.setItem('numofPeople', JSON.stringify({ 'adults': adults,'children': children}));
 }
 

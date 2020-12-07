@@ -159,7 +159,7 @@ facility.delete = function (id, name) {
 
 facility.add = function () {
     facility.reset();
-    $('.modal-title').text('Thêm tiện nghi');
+    $('.modal-title').text('Add Facillity');
     $('#mediumModal').appendTo("body");
     $('#mediumModal').modal('show');
 }
